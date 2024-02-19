@@ -1,15 +1,20 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const primeiraAba = document.getElementById("minhas-redes");
+  selecionarAba(primeiraAba);
+  mostrarInformacoesDaAba(primeiraAba);
+});
+
 const abas = document.querySelectorAll(".aba");
 
 abas.forEach(aba => {
-     aba.addEventListener("click", function() {
+  aba.addEventListener("click", function() {
+    if (aba.classList.contains("selecionado")) {
+      return;
+    }
 
-        if(aba.classList.contains("selecionado")){
-            return;
-        }
-
-        selecionarAba(aba)
-        mostrarInformacoesDaAba(aba)
-    });
+    selecionarAba(aba);
+    mostrarInformacoesDaAba(aba);
+  });
 });
 
 function selecionarAba(aba) {
